@@ -36,13 +36,10 @@ async function loadPageContent() {
     document.close();
 }
 
-document.addEventListener('turbo:load', () => {
-    const webLoginBtn = document.getElementById("web-login-button");
-    const mobileLoginBtn = document.getElementById("mobile-login-button");
-
-    if (webLoginBtn) setupLoginLogoutHandler(webLoginBtn);
-    if (mobileLoginBtn) setupLoginLogoutHandler(mobileLoginBtn);
-})
+const webLoginBtn = document.getElementById("web-login-button");
+const mobileLoginBtn = document.getElementById("mobile-login-button");
+if (webLoginBtn) setupLoginLogoutHandler(webLoginBtn);
+if (mobileLoginBtn) setupLoginLogoutHandler(mobileLoginBtn);
 
 function setupLoginLogoutHandler(btn) {
     if (!btn) return;
