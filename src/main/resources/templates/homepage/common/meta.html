@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <!--Todo: meta object 로 분리하기-->
+    <th:block th:fragment="meta(title)">
+<!--        <title th:text="|${title}|">유학 정보 플랫폼</title>-->
+        <meta name="description" content="유학 정보 사이트. 유학정보/원서접수/접수지원/유학상담 서비스 제공">
+        <meta name="keyword" content="유학, 해외대학, 원서접수">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="유학 정보 플랫폼" th:content="|${title}|">
+        <meta property="og:description" content="대한민국 유학 정보 플랫폼">
+        <meta property="og:image" content="https://readdy.ai/api/search-image?query=A%20serene%20campus%20scene%20with%20modern%20university%20buildings%2C%20students%20walking%20on%20pathways%20surrounded%20by%20lush%20greenery%2C%20soft%20sunlight%20filtering%20through%20trees%2C%20creating%20a%20peaceful%20academic%20atmosphere.%20The%20image%20has%20a%20clean%2C%20bright%20aesthetic%20with%20a%20gradient%20from%20white%20on%20the%20left%20to%20a%20colorful%20campus%20scene%20on%20the%20right%2C%20perfect%20for%20text%20overlay%20on%20the%20left%20side.&width=1920&height=600&seq=1&orientation=landscape">
+        <meta property="og:url" content="https://website.com">
+
+        <link rel="image_src" href="https://readdy.ai/api/search-image?query=A%20serene%20campus%20scene%20with%20modern%20university%20buildings%2C%20students%20walking%20on%20pathways%20surrounded%20by%20lush%20greenery%2C%20soft%20sunlight%20filtering%20through%20trees%2C%20creating%20a%20peaceful%20academic%20atmosphere.%20The%20image%20has%20a%20clean%2C%20bright%20aesthetic%20with%20a%20gradient%20from%20white%20on%20the%20left%20to%20a%20colorful%20campus%20scene%20on%20the%20right%2C%20perfect%20for%20text%20overlay%20on%20the%20left%20side.&width=1920&height=600&seq=1&orientation=landscape">
+        <link rel="icon" href="/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" href="/favicon.ico">
+    </th:block>
+</html>

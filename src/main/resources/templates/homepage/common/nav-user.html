@@ -1,4 +1,5 @@
-<nav class="bg-white shadow-sm fixed w-full z-10" th:fragment="nav-user">
+<nav th:fragment="nav-user" xmlns:th="http://www.thymeleaf.org"
+     class="bg-white shadow-sm w-full sticky top-0 z-10">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
 
@@ -51,15 +52,16 @@
 
             <!-- 오른쪽 로그인/프로필 -->
             <div>
-                <button
+                <a
                         id="web-login-button"
+                        href="/member/login"
                         th:class="${requestURI.startsWith('/profile') || loginMember == null} ?
                           'bg-indigo-600 text-white px-4 py-2 !rounded-button whitespace-nowrap' :
                           'text-sm font-medium w-full h-full flex items-center justify-center'"
                         th:text="${loginMember == null ?
                           '로그인' :
                           (#strings.startsWith(requestURI, '/profile') ? '로그아웃' : loginMember.memberName.substring(0, 1))}">
-                </button>
+                </a>
             </div>
 
             <!-- 모바일 햄버거 버튼 -->
@@ -76,9 +78,8 @@
     </div>
 
     <!-- 모바일 메뉴 -->
-    <!-- 모바일 메뉴 -->
     <div id="mobile-menu"
-         class="hidden hidden absolute top-16 left-0 w-full bg-white shadow-lg border-t border-gray-100 z-[9998]"
+         class="hidden absolute top-16 left-0 w-full bg-white shadow-lg border-t border-gray-100 z-[9998]"
          th:if="${!requestURI.startsWith('/profile')}">
 
         <div class="pt-2 pb-3 space-y-1">
@@ -106,5 +107,4 @@
     <script src="/js/homepage/nav-user.js" defer></script>
     <script src="/js/homepage/login.js" defer></script>
     <script src="/js/homepage/url.js" defer></script>
-
 </nav>

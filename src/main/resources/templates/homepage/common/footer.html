@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<footer class="bg-gray-900 text-white" th:fragment="footer">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <a href="#" class="text-2xl font-['Pacifico'] text-white">logo</a>
+                <p class="mt-4 text-gray-400">
+                    당신의 꿈을 위한 완벽한 유학 가이드. 전 세계 유수의 대학교와
+                    신뢰할 수 있는 유학원 정보를 한 곳에서 만나보세요.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">서비스</h3>
+                <ul class="space-y-2">
+                    <li><a th:href="@{/info}" class="text-gray-400 hover:text-white">유학 정보</a></li>
+                    <li><a th:href="@{/school/list}" class="text-gray-400 hover:text-white">대학교 찾기</a></li>
+                    <li><a th:href="@{/agency/list}" class="text-gray-400 hover:text-white">유학원 찾기</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">회사 정보</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white">회사 소개</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">이용약관</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">개인정보처리방침</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">연락처</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="ri-map-pin-line mr-2"></i>
+                        <span class="text-gray-400">서울특별시 강남구 테헤란로 123</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="ri-phone-line mr-2"></i>
+                        <span class="text-gray-400">02-123-4567</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="ri-mail-line mr-2"></i>
+                        <span class="text-gray-400">info@studyabroad.kr</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+            <p>© 2025 유학 정보 플랫폼. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <th:block th:fragment="main-layout(head, contents, script)">
+        <th:block th:replace="~{layout/base :: base(~{::head-component}, ~{::body-contents})}">
+            <!--Head Component-->
+            <th:block th:fragment="head-component">
+                <th:block th:replace="~{homepage/common/meta :: meta(|유학 정보 플랫폼|)}"></th:block>
+                <th:block th:replace="${head}"></th:block>
+            </th:block>
+
+            <!--Body Component-->
+            <th:block th:fragment="body-contents">
+                <nav th:replace="~{homepage/common/nav-user :: nav-user}"></nav>
+                <div th:replace="${contents}"></div>
+                <footer th:replace="~{homepage/common/footer :: footer}"></footer>
+                <th:block th:replace="${script}"></th:block>
+            </th:block>
+        </th:block>
+    </th:block>
+
+</html>

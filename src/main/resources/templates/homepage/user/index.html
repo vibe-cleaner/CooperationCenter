@@ -1,84 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>유학 정보 플랫폼</title>
-    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { primary: "#4F46E5", secondary: "#818CF8" },
-                    borderRadius: {
-                        none: "0px",
-                        sm: "4px",
-                        DEFAULT: "8px",
-                        md: "12px",
-                        lg: "16px",
-                        xl: "20px",
-                        "2xl": "24px",
-                        "3xl": "32px",
-                        full: "9999px",
-                        button: "8px",
-                    },
-                },
-            },
-        };
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-            href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
-            rel="stylesheet"
-    />
-    <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
-            rel="stylesheet"
-    />
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
-    />
-    <style>
-        :where([class^="ri-"])::before { content: "\f3c2"; }
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-        .university-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        .agency-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        input[type="number"]::-webkit-inner-spin-button,
-        input[type="number"]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-    </style>
-</head>
-<body class="bg-gray-50 min-h-screen">
-<nav th:replace="~{homepage/common/nav-user :: nav-user}"></nav>
-<div class="relative pt-16 overflow-hidden">
+<html th:replace="~{layout/main-layout :: main-layout(~{::head}, ~{::body}, ~{::script})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head></head>
+
+<body>
+<!--메인 베너-->
+<div class="relative overflow-hidden">
     <div class="absolute inset-0 z-0">
-        <img
-                src="https://readdy.ai/api/search-image?query=A%20serene%20campus%20scene%20with%20modern%20university%20buildings%2C%20students%20walking%20on%20pathways%20surrounded%20by%20lush%20greenery%2C%20soft%20sunlight%20filtering%20through%20trees%2C%20creating%20a%20peaceful%20academic%20atmosphere.%20The%20image%20has%20a%20clean%2C%20bright%20aesthetic%20with%20a%20gradient%20from%20white%20on%20the%20left%20to%20a%20colorful%20campus%20scene%20on%20the%20right%2C%20perfect%20for%20text%20overlay%20on%20the%20left%20side.&width=1920&height=600&seq=1&orientation=landscape"
-                alt="캠퍼스 배경"
-                class="w-full h-full object-cover object-top"
-        />
-        <div
-                class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/10"
-        ></div>
+        <img src="https://readdy.ai/api/search-image?query=A%20serene%20campus%20scene%20with%20modern%20university%20buildings%2C%20students%20walking%20on%20pathways%20surrounded%20by%20lush%20greenery%2C%20soft%20sunlight%20filtering%20through%20trees%2C%20creating%20a%20peaceful%20academic%20atmosphere.%20The%20image%20has%20a%20clean%2C%20bright%20aesthetic%20with%20a%20gradient%20from%20white%20on%20the%20left%20to%20a%20colorful%20campus%20scene%20on%20the%20right%2C%20perfect%20for%20text%20overlay%20on%20the%20left%20side.&width=1920&height=600&seq=1&orientation=landscape"
+             alt="" class="size-full object-cover object-top"/>
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/10"></div>
     </div>
     <div class="relative z-1">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
             <div class="max-w-2xl">
-                <h1
-                        class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
-                >
+                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                     당신의 꿈을 위한 완벽한 유학 가이드
                 </h1>
                 <p class="mt-6 text-xl text-gray-600">
@@ -86,14 +22,10 @@
                     만나보세요. 당신의 성공적인 유학 생활을 위한 첫 걸음을 함께합니다.
                 </p>
                 <div class="mt-8 flex flex-wrap gap-4">
-                    <button
-                            class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap"
-                    >
+                    <button class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap">
                         시작하기
                     </button>
-                    <button
-                            class="bg-white text-primary border border-primary px-6 py-3 !rounded-button whitespace-nowrap"
-                    >
+                    <button class="bg-white text-primary border border-primary px-6 py-3 !rounded-button whitespace-nowrap">
                         더 알아보기
                     </button>
                 </div>
@@ -101,6 +33,8 @@
         </div>
     </div>
 </div>
+
+<!--학교 리스트-->
 <section class="py-16 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -159,6 +93,7 @@
         </ul>
     </div>
 </section>
+
 <!-- 유학원 섹션 -->
 <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -184,7 +119,8 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-lg font-semibold text-gray-900" th:text="${agency.agencyName}">유학원 이름</h3>
-                        <p class="mt-2 text-sm text-gray-600" th:text="${agency.agencyAddress1} + ' ' + ${agency.agencyAddress2}">주소</p>
+                        <p class="mt-2 text-sm text-gray-600"
+                           th:text="${agency.agencyAddress1} + ' ' + ${agency.agencyAddress2}">주소</p>
                         <p class="mt-2 text-sm text-gray-600" th:text="${agency.agencyPhone}">전화번호</p>
                         <p class="mt-2 text-sm text-gray-600" th:text="'대표자: ' + ${agency.agencyOwner}">대표자</p>
                     </div>
@@ -202,133 +138,10 @@
         </div>
     </div>
 </section>
-<footer class="bg-gray-900 text-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-                <a href="#" class="text-2xl font-['Pacifico'] text-white">logo</a>
-                <p class="mt-4 text-gray-400">
-                    당신의 꿈을 위한 완벽한 유학 가이드. 전 세계 유수의 대학교와
-                    신뢰할 수 있는 유학원 정보를 한 곳에서 만나보세요.
-                </p>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-4">서비스</h3>
-                <ul class="space-y-2">
-                    <li>
-                        <a href="#" class="text-gray-400 hover:text-white">유학 정보</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-400 hover:text-white"
-                        >대학교 찾기</a
-                        >
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-400 hover:text-white"
-                        >유학원 찾기</a
-                        >
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-400 hover:text-white"
-                        >장학금 정보</a
-                        >
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-400 hover:text-white">비자 안내</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-4">회사 정보</h3>
-                <ul class="space-y-2">
-                    <li>
-                        <a href="#" class="text-gray-400 hover:text-white">회사 소개</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-400 hover:text-white">이용약관</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-400 hover:text-white"
-                        >개인정보처리방침</a
-                        >
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-400 hover:text-white"
-                        >자주 묻는 질문</a
-                        >
-                    </li>
-                    <li>
-                        <a href="#" class="text-gray-400 hover:text-white">고객센터</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-4">연락처</h3>
-                <ul class="space-y-2">
-                    <li class="flex items-center">
-                        <div class="w-5 h-5 flex items-center justify-center mr-2">
-                            <i class="ri-map-pin-line"></i>
-                        </div>
-                        <span class="text-gray-400"
-                        >서울특별시 강남구 테헤란로 123</span
-                        >
-                    </li>
-                    <li class="flex items-center">
-                        <div class="w-5 h-5 flex items-center justify-center mr-2">
-                            <i class="ri-phone-line"></i>
-                        </div>
-                        <span class="text-gray-400">02-123-4567</span>
-                    </li>
-                    <li class="flex items-center">
-                        <div class="w-5 h-5 flex items-center justify-center mr-2">
-                            <i class="ri-mail-line"></i>
-                        </div>
-                        <span class="text-gray-400">info@studyabroad.kr</span>
-                    </li>
-                </ul>
-                <div class="mt-6 flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white">
-                        <div
-                                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800"
-                        >
-                            <i class="ri-instagram-line"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white">
-                        <div
-                                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800"
-                        >
-                            <i class="ri-facebook-fill"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white">
-                        <div
-                                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800"
-                        >
-                            <i class="ri-youtube-fill"></i>
-                        </div>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white">
-                        <div
-                                class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800"
-                        >
-                            <i class="ri-kakao-talk-fill"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div
-                class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm"
-        >
-            <p>© 2025 유학 정보 플랫폼. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-<script src="/js/homepage/url.js"></script>
+
 <!-- 도시 탭 스크립트 -->
 <script id="city-tab-script">
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("turbo:load", function () {
         const cityTabs = document.querySelectorAll(".city-tab");
         const cityContents = document.querySelectorAll(".city-content");
         cityTabs.forEach((tab) => {
@@ -359,4 +172,8 @@
 </script>
 
 </body>
+
+<th:block th:fragment="script">
+
+</th:block>
 </html>
